@@ -104,11 +104,23 @@ async function run() {
           title: body.title,
           price: body.price,
           seller: body.category,
+         
         },
       };
       const result = await ToysCollection.updateOne(filter, updateDoc);
       res.send(result);
     });
+    app.delete("/deleteToy/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await ToysCollection.deleteOne(filter);
+      if (result.deletedCount === 1) {
+        res.send({ message: "Toy deleted successfully" });
+      } else {
+        res.status(404).send({ message: "Toy not found" });
+      }
+    });
+    
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
