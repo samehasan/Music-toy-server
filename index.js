@@ -46,6 +46,8 @@ async function run() {
       res.send(Toys);
     });
 
+
+    
     app.get("/myToys/:email", async (req, res) => {
       console.log(req.params.id);
       const Toys = await ToysCollection
@@ -93,7 +95,7 @@ async function run() {
         .toArray();
       res.send(result);
     });
-
+   
     app.put("/updateToy/:id", async (req, res) => {
       const id = req.params.id;
       const body = req.body;
@@ -121,6 +123,20 @@ async function run() {
       }
     });
     
+    app.get("/singleToy/:id", async (req, res) => {
+      try {
+        console.log(req.params.id);
+        const toy = await ToysCollection.findOne({
+          _id: new ObjectId(req.params.id),
+        });
+        res.setHeader("Content-Type", "application/json");
+        res.send(JSON.stringify(toy));
+      } catch (error) {
+        console.log("Error fetching toy details:", error);
+        res.status(500).json({ error: "Failed to fetch toy details" });
+      }
+    });
+
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
