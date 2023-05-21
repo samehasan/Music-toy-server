@@ -10,19 +10,20 @@ app.use(express.json());
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const uri=`mongodb://Music-Toy:N8AiL2FoH5QGPaIF@ac-55gaz78-shard-00-00.ssocgpa.mongodb.net:27017,ac-55gaz78-shard-00-01.ssocgpa.mongodb.net:27017,ac-55gaz78-shard-00-02.ssocgpa.mongodb.net:27017/?ssl=true&replicaSet=atlas-12dfcw-shard-0&authSource=admin&retryWrites=true&w=majority`
+const client = new MongoClient(uri, { useUnifiedTopology: true}, { useNewUrlParser: true }, { connectTimeoutMS: 30000 }, { keepAlive: 1});
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   },
+// });
 
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+     client.connect();
     // Send a ping to confirm a successful connection
    
     const db = client.db("Music-Toy");
