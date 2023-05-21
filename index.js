@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config();
 // DB_USER=Music-Toy
 // DB-PASS=N8AiL2FoH5QGPaIF
 const app = express();

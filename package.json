@@ -1,20 +1,26 @@
 {
-  "name": "server",
+  "name": "music-toy-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-samehasan.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-samehasan/issues"
+  },
+  "homepage": "https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-samehasan#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongodb": "^5.5.0",
-    "nodemon": "^2.0.22"
+    "mongodb": "^5.5.0"
   }
 }
