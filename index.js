@@ -1,12 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 require('dotenv').config();
-// DB_USER=Music-Toy
-// DB-PASS=N8AiL2FoH5QGPaIF
+
 const app = express();
 app.use(cors());
 app.use(express.json());
-//${process.env.DB_USER}:${process.env.DB_PASS}
+
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const uri=`mongodb://Music-Toy:N8AiL2FoH5QGPaIF@ac-55gaz78-shard-00-00.ssocgpa.mongodb.net:27017,ac-55gaz78-shard-00-01.ssocgpa.mongodb.net:27017,ac-55gaz78-shard-00-02.ssocgpa.mongodb.net:27017/?ssl=true&replicaSet=atlas-12dfcw-shard-0&authSource=admin&retryWrites=true&w=majority`
